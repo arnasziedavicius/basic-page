@@ -1,4 +1,4 @@
 <?php
 include_once('./head.inc');
-echo 'Hello world!';
+echo 'Hello, World!';
 include_once('./foot.inc');
