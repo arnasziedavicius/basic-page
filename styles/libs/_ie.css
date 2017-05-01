@@ -1,0 +1,45 @@
+#ie-overlay {
+  position:fixed;
+  top:0px;
+  left:0px;
+  z-index:99999999;
+  background:black;
+  color:white;
+  height:100%;
+  width:100%;
+  font-family:sans-serif;
+
+  table {
+    height:100%;
+    width:50%;
+    margin:0 auto;
+
+    tr {
+      td {
+        vertical-align:middle;
+        text-align:center;
+
+        h2 {
+          font-family:sans-serif;
+          font-weight:bold;
+          margin-top:10px;
+          margin-bottom:18px;
+          font-size:21px;
+          line-height:24px;
+        }
+
+        p {
+          margin-bottom:18px;
+          font-size:16px;
+          line-height:19px;
+
+          a {
+            color: #DD733B;
+            text-decoration: none;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}
