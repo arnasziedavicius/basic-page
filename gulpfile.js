@@ -1,4 +1,5 @@
 var gulp = require('gulp'),
+    gutil = require('gulp-util'),
     sass = require('gulp-sass'),
     concat = require('gulp-concat'),
     plumber = require('gulp-plumber'),
@@ -13,8 +14,8 @@ var onError = function (err) {
 };
 
 var paths = {
- styles: ['./styles/**/*.scss'],
- scripts: ['./scripts/**/*.js'],
+  styles: ['./styles/**/*.scss'],
+  scripts: ['./scripts/**/*.js'],
 };
 
 gulp.task('scripts', function() {
