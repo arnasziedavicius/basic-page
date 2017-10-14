@@ -36,6 +36,9 @@ gulp.task('styles', function() {
       includePaths: bourbon,
     }).on('error', sass.logError))
     .pipe(gulp.dest('./assets/css/'))
+    .pipe(rename({suffix: '.min'}))
+    .pipe(cleanCSS())
+    .pipe(gulp.dest('./assets/css/'))
     .pipe(livereload());
 });
 
