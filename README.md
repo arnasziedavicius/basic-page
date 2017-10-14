@@ -30,7 +30,7 @@ Convert scss to css and compile styles in `/styles` directory:
 $ gulp styles
 ```
 
-See `gulpfile.js` for more tasks.
+See `gulpfile.js` for more.
 
 ## Production
 Export all files except `/scripts`, `/styles` and all node related files.
