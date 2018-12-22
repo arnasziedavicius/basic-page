@@ -5,7 +5,6 @@ const gulp = require('gulp'),
   plumber = require('gulp-plumber'),
   uglify = require('gulp-uglify'),
   rename = require('gulp-rename'),
-  bourbon = require('node-bourbon').includePaths,
   livereload = require('gulp-livereload');
 
 const onError = function (err) {  
@@ -32,9 +31,7 @@ gulp.task('scripts', () => {
 gulp.task('styles', () => {
   gulp.src(paths.styles)
     .pipe(plumber(onError))  
-    .pipe(sass({
-      includePaths: bourbon,
-    }).on('error', sass.logError))
+    .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./assets/css/'))
     .pipe(rename({suffix: '.min'}))
     .pipe(cleanCSS())
