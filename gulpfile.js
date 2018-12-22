@@ -1,24 +1,24 @@
-var gulp = require('gulp'),
-    gutil = require('gulp-util'),
-    sass = require('gulp-sass'),
-    concat = require('gulp-concat'),
-    plumber = require('gulp-plumber'),
-    uglify = require('gulp-uglify'),
-    rename = require('gulp-rename'),
-    bourbon = require('node-bourbon').includePaths,
-    livereload = require('gulp-livereload');
+const gulp = require('gulp'),
+  gutil = require('gulp-util'),
+  sass = require('gulp-sass'),
+  concat = require('gulp-concat'),
+  plumber = require('gulp-plumber'),
+  uglify = require('gulp-uglify'),
+  rename = require('gulp-rename'),
+  bourbon = require('node-bourbon').includePaths,
+  livereload = require('gulp-livereload');
 
-var onError = function (err) {  
+const onError = function (err) {  
   gutil.beep();
   console.log(err);
 };
 
-var paths = {
+const paths = {
   styles: ['./styles/**/*.scss'],
   scripts: ['./scripts/**/*.js'],
 };
 
-gulp.task('scripts', function() {
+gulp.task('scripts', () => {
   gulp.src(paths.scripts)
     .pipe(plumber(onError))
     .pipe(concat('main.js'))
@@ -29,7 +29,7 @@ gulp.task('scripts', function() {
     .pipe(livereload());
 });
 
-gulp.task('styles', function() {
+gulp.task('styles', () => {
   gulp.src(paths.styles)
     .pipe(plumber(onError))  
     .pipe(sass({
@@ -43,7 +43,7 @@ gulp.task('styles', function() {
 });
 
 //Watch task
-gulp.task('default', function() {
+gulp.task('default', () => {
   livereload.listen();
   // Watch css
   gulp.watch(paths.styles, ['styles']);
