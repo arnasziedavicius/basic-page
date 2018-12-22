@@ -1,9 +1,11 @@
+'use strict';
+
 const gulp = require('gulp'),
   gutil = require('gulp-util'),
   sass = require('gulp-sass'),
   concat = require('gulp-concat'),
   plumber = require('gulp-plumber'),
-  uglify = require('gulp-uglify'),
+  terser = require('gulp-terser'),
   cleanCSS = require('gulp-clean-css'),
   rename = require('gulp-rename'),
   livereload = require('gulp-livereload');
@@ -24,7 +26,7 @@ gulp.task('scripts', () => {
     .pipe(concat('main.js'))
     .pipe(gulp.dest('./assets/js/'))
     .pipe(rename({suffix: '.min'}))
-    .pipe(uglify())
+    .pipe(terser())
     .pipe(gulp.dest('./assets/js/'))
     .pipe(livereload());
 });
@@ -33,6 +35,7 @@ gulp.task('styles', () => {
   gulp.src(paths.styles)
     .pipe(plumber(onError))  
     .pipe(sass().on('error', sass.logError))
+    .pipe(concat('main.css'))
     .pipe(gulp.dest('./assets/css/'))
     .pipe(rename({suffix: '.min'}))
     .pipe(cleanCSS())
