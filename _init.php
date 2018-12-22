@@ -1,5 +1,5 @@
 <?php
-namespace AZ;
+namespace BP;
 
 class Site {
 
@@ -13,6 +13,6 @@ class Site {
 
 }
 
-use AZ\Site as Site;
+use BP\Site as Site;
 
 $site = new Site();
