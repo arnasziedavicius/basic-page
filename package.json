@@ -1,6 +1,6 @@
 {
   "name": "basic-page",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "This document is in Markdown. An HTML formatted version of this document  can be read at: https://github.com/processwire/processwire/blob/master/README.md",
   "main": "index.js",
   "scripts": {
