@@ -4,6 +4,7 @@ const gulp = require('gulp'),
   concat = require('gulp-concat'),
   plumber = require('gulp-plumber'),
   uglify = require('gulp-uglify'),
+  cleanCSS = require('gulp-clean-css'),
   rename = require('gulp-rename'),
   livereload = require('gulp-livereload');
 
