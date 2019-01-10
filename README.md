@@ -2,10 +2,6 @@
 
 A template for building basic single-page applications or SPA with Delayed Output strategy.
 
-## Dependencies
-
-* npm
-
 ## Install
 To install use:
 ```
