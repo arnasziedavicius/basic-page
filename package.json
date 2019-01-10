@@ -1,18 +1,17 @@
 {
   "name": "basic-page",
   "version": "1.1.0",
-  "description": "This document is in Markdown. An HTML formatted version of this document  can be read at: https://github.com/processwire/processwire/blob/master/README.md",
+  "description": "A template for building a basic site with Delayed Output strategy.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://arnasziedas@bitbucket.org/arnasziedas/basic-page.git"
+    "url": "git+https://github.com/arnasziedavicius/basic-page"
   },
-  "author": "Arnas Ziedavicius",
-  "license": "ISC",
-  "homepage": "https://bitbucket.org/arnasziedas/basic-page#readme",
+  "author": "Arnas Ziedavicius <info@arnasziedavicius.com>",
+  "homepage": "https://github.com/arnasziedavicius/basic-page#readme",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-es2018": "^1.0.0",
