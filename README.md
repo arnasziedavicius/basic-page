@@ -34,7 +34,3 @@ See `gulpfile.js` for more.
 
 ## Production
 Export all files except `/scripts`, `/styles` and all node related files.
-
-------
-
-Copyright 2017 Arnas Ziedavicius
