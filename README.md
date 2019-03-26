@@ -1,6 +1,6 @@
-# Basic Page
+# basic-page
 
-A template for building basic single-page applications or SPA with Delayed Output strategy.
+A template for building basic websites with Delayed Output strategy.
 
 ## Install
 To install use:
