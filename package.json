@@ -1,11 +1,7 @@
 {
   "name": "basic-page",
   "version": "1.1.0",
-  "description": "A template for building a basic site with Delayed Output strategy.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "description": "A template for building a basic site with delayed output strategy.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/arnasziedavicius/basic-page"
