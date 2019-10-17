@@ -1,53 +1,62 @@
-'use strict';
-
-const gulp = require('gulp'),
-  gutil = require('gulp-util'),
-  sass = require('gulp-sass'),
-  concat = require('gulp-concat'),
-  plumber = require('gulp-plumber'),
-  terser = require('gulp-terser'),
-  cleanCSS = require('gulp-clean-css'),
-  rename = require('gulp-rename'),
-  livereload = require('gulp-livereload');
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const concat = require('gulp-concat');
+const plumber = require('gulp-plumber');
+const terser = require('gulp-terser');
+const cleanCSS = require('gulp-clean-css');
+const rename = require('gulp-rename');
 
 const onError = function (err) {  
-  gutil.beep();
   console.log(err);
 };
 
 const paths = {
-  styles: ['./styles/**/*.scss'],
-  scripts: ['./scripts/**/*.js'],
+  styles: [
+    './styles/main.scss',
+  ],
+  scripts: [
+    './scripts/main.js',
+  ],
 };
 
-gulp.task('scripts', () => {
-  gulp.src(paths.scripts)
+const compileScript = () => {
+  return gulp.src(paths.scripts)
     .pipe(plumber(onError))
     .pipe(concat('main.js'))
     .pipe(gulp.dest('./assets/js/'))
     .pipe(rename({suffix: '.min'}))
     .pipe(terser())
-    .pipe(gulp.dest('./assets/js/'))
-    .pipe(livereload());
-});
+    .pipe(gulp.dest('./assets/js/'));
+};
 
-gulp.task('styles', () => {
-  gulp.src(paths.styles)
+const compileStyle = () => {
+  return gulp.src(paths.styles)
     .pipe(plumber(onError))  
     .pipe(sass().on('error', sass.logError))
     .pipe(concat('main.css'))
     .pipe(gulp.dest('./assets/css/'))
     .pipe(rename({suffix: '.min'}))
     .pipe(cleanCSS())
-    .pipe(gulp.dest('./assets/css/'))
-    .pipe(livereload());
-});
+    .pipe(gulp.dest('./assets/css/'));
+};
 
-//Watch task
-gulp.task('default', () => {
-  livereload.listen();
-  // Watch css
-  gulp.watch(paths.styles, ['styles']);
-  // Watch js
-  gulp.watch(paths.scripts, ['scripts']);
-});
+const watchScript = () => {
+  gulp.watch(paths.scripts, compileScript);
+};
+
+const watchStyle = () => {
+  gulp.watch(paths.styles, compileStyle);
+};
+
+const compile = gulp.parallel(compileScript, compileStyle);
+compile.description = 'compile all sources';
+
+const watch = gulp.parallel(watchScript, watchStyle);
+watch.description = 'watch for changes to all source';
+
+const defaultTasks = watch;
+
+exports.compile = compile;
+exports.watch = watch;
+
+exports.default = defaultTasks;
